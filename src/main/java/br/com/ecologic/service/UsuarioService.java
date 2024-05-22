@@ -24,18 +24,25 @@ public class UsuarioService {
     private PasswordEncoder passwordEncoder;
 
     public UsuarioExibicaoDto gravar(UsuarioCadastroDto usuarioCadastroDto){
-        String senhaCriptografada = new BCryptPasswordEncoder().encode(usuarioCadastroDto.senha());
-        Usuario usuario = new Usuario();
-        BeanUtils.copyProperties(usuarioCadastroDto, usuario);
-        usuario.setSenha(senhaCriptografada);
+        UserDetails usuarioDetails = usuarioRepository.findByEmail(usuarioCadastroDto.email());
+        if(usuarioDetails != null){
+            throw new UsuarioException("Usuário já cadastrado na base");
+        }
+        else{
+            String senhaCriptografada = new BCryptPasswordEncoder().encode(usuarioCadastroDto.senha());
+            Usuario usuario = new Usuario();
+            BeanUtils.copyProperties(usuarioCadastroDto, usuario);
+            usuario.setSenha(senhaCriptografada);
 
-        if(usuario.getRole() == null){
-            usuario.setRole(UsuarioRole.USER);
+            if(usuario.getRole() == null){
+                usuario.setRole(UsuarioRole.USER);
+            }
+            if(!usuario.isAtivo()){
+                usuario.setAtivo(true);
+            }
+            return new UsuarioExibicaoDto(usuarioRepository.save(usuario));
         }
-        if(!usuario.isAtivo()){
-            usuario.setAtivo(true);
-        }
-        return new UsuarioExibicaoDto(usuarioRepository.save(usuario));
+
     }
 
     public UsuarioExibicaoDto BuscarPorId(UUID id){
