@@ -1,6 +1,9 @@
 package br.com.ecologic.controller;
 
+import br.com.ecologic.dto.TokenDto;
 import br.com.ecologic.dto.UsuarioLoginDto;
+import br.com.ecologic.model.Usuario;
+import br.com.ecologic.service.TokenService;
 import br.com.ecologic.service.UsuarioService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +24,8 @@ public class AuthController {
     private AuthenticationManager authenticationManager;
     @Autowired
     private UsuarioService usuarioService;
+    @Autowired
+    private TokenService tokenService;
 
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody @Valid UsuarioLoginDto usuarioLoginDto){
@@ -29,7 +34,8 @@ public class AuthController {
                 usuarioLoginDto.senha()
         );
         Authentication auth = authenticationManager.authenticate(usernamepassword);
-        return ResponseEntity.ok(auth);
+        String token = tokenService.gerarToken((Usuario) auth.getPrincipal());
+        return ResponseEntity.ok(new TokenDto(token));
     }
 
 }
