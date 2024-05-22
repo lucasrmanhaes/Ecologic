@@ -14,7 +14,9 @@ import java.util.UUID;
 @Entity(name = "TB_USUARIO")
 public class Usuario implements UserDetails {
 
-    @Id @GeneratedValue(generator = "UUID") @Column(name = "id_usuario")
+    @Id
+    @GeneratedValue(generator = "UUID")
+    @Column(name = "id_usuario")
     private UUID id;
     private String nome;
     private String cpf;
