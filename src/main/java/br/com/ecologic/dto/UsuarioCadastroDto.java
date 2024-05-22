@@ -1,5 +1,6 @@
 package br.com.ecologic.dto;
 
+import br.com.ecologic.constants.UsuarioRole;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
@@ -14,6 +15,8 @@ public record UsuarioCadastroDto(
         @Email(message = "O e-mail está incorreto")
         String email,
         @NotBlank(message = "A senha é obrigatória")
-        String senha
+        String senha,
+        boolean ativo,
+        UsuarioRole role
 )
 { }

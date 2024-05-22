@@ -1,12 +1,15 @@
 package br.com.ecologic.service;
 
 import br.com.ecologic.Exception.UsuarioException;
+import br.com.ecologic.constants.UsuarioRole;
 import br.com.ecologic.dto.UsuarioCadastroDto;
 import br.com.ecologic.dto.UsuarioExibicaoDto;
 import br.com.ecologic.model.Usuario;
 import br.com.ecologic.repository.UsuarioRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 import java.util.UUID;
@@ -16,18 +19,22 @@ public class UsuarioService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public UsuarioExibicaoDto gravar(UsuarioCadastroDto usuarioCadastroDto){
+        String senhaCriptografada = new BCryptPasswordEncoder().encode(usuarioCadastroDto.senha());
         Usuario usuario = new Usuario();
         BeanUtils.copyProperties(usuarioCadastroDto, usuario);
-        Optional<Usuario> usuarioOpt = usuarioRepository.findByEmail(usuario.getEmail());
-        if(usuarioOpt.isPresent()){
-            throw new UsuarioException("Usuario cadastrado na base dados");
+        usuario.setSenha(senhaCriptografada);
+
+        if(usuario.getRole() == null){
+            usuario.setRole(UsuarioRole.USER);
         }
-        else{
-            usuarioRepository.save(usuario);
-            return new UsuarioExibicaoDto(usuario);
+        if(!usuario.isAtivo()){
+            usuario.setAtivo(true);
         }
+        return new UsuarioExibicaoDto(usuarioRepository.save(usuario));
     }
 
     public UsuarioExibicaoDto BuscarPorId(UUID id){
