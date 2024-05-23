@@ -1,6 +1,6 @@
 package br.com.ecologic.service;
 
-import br.com.ecologic.dto.residuo_dto.ResiduoCadastroDto;
+import br.com.ecologic.dto.ResiduoCadastroDto;
 import br.com.ecologic.model.Residuo;
 import br.com.ecologic.repository.ResiduoRepository;
 import org.springframework.http.ResponseEntity;

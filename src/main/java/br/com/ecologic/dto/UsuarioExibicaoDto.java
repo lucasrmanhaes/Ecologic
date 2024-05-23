@@ -1,4 +1,4 @@
-package br.com.ecologic.dto.usuario_dto;
+package br.com.ecologic.dto;
 
 import br.com.ecologic.constants.UsuarioRole;
 import br.com.ecologic.model.Usuario;

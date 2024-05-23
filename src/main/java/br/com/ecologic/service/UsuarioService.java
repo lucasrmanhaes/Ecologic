@@ -2,8 +2,8 @@ package br.com.ecologic.service;
 
 import br.com.ecologic.Exception.UsuarioException;
 import br.com.ecologic.constants.UsuarioRole;
-import br.com.ecologic.dto.usuario_dto.UsuarioCadastroDto;
-import br.com.ecologic.dto.usuario_dto.UsuarioExibicaoDto;
+import br.com.ecologic.dto.UsuarioCadastroDto;
+import br.com.ecologic.dto.UsuarioExibicaoDto;
 import br.com.ecologic.model.Usuario;
 import br.com.ecologic.repository.UsuarioRepository;
 import org.springframework.beans.BeanUtils;

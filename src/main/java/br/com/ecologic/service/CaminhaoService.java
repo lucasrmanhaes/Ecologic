@@ -1,15 +1,17 @@
 package br.com.ecologic.service;
 
-import br.com.ecologic.dto.caminhao_dto.CaminhaoDto;
+import br.com.ecologic.dto.CaminhaoDto;
 import br.com.ecologic.model.Caminhao;
 import br.com.ecologic.repository.CaminhaoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CaminhaoService {
 
-    private final CaminhaoRepository caminhaoRepository;
+    @Autowired
+    private CaminhaoRepository caminhaoRepository;
 
     public CaminhaoService(CaminhaoRepository caminhaoRepository) {
         this.caminhaoRepository = caminhaoRepository;

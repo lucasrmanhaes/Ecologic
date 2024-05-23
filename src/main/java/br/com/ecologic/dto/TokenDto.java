@@ -1,3 +1,3 @@
-package br.com.ecologic.dto.usuario_dto;
+package br.com.ecologic.dto;
 
 public record TokenDto(String token) { }

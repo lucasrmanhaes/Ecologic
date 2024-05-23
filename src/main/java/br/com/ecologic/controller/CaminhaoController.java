@@ -1,7 +1,6 @@
-package br.com.ecologic.controller.caminhao_controller;
+package br.com.ecologic.controller;
 
-
-import br.com.ecologic.dto.caminhao_dto.CaminhaoDto;
+import br.com.ecologic.dto.CaminhaoDto;
 import br.com.ecologic.model.Caminhao;
 import br.com.ecologic.service.CaminhaoService;
 import jakarta.validation.Valid;

@@ -1,6 +1,6 @@
-package br.com.ecologic.controller.residuo_controller;
+package br.com.ecologic.controller;
 
-import br.com.ecologic.dto.residuo_dto.ResiduoCadastroDto;
+import br.com.ecologic.dto.ResiduoCadastroDto;
 import br.com.ecologic.model.Residuo;
 import br.com.ecologic.service.ResiduoService;
 import jakarta.validation.Valid;

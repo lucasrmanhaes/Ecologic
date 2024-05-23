@@ -1,4 +1,4 @@
-package br.com.ecologic.dto.caminhao_dto;
+package br.com.ecologic.dto;
 
 import java.util.UUID;
 

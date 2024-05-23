@@ -1,4 +1,4 @@
-        package br.com.ecologic.dto.residuo_dto;
+        package br.com.ecologic.dto;
 
         import br.com.ecologic.constants.TipoResiduo;
         import jakarta.validation.constraints.NotBlank;
