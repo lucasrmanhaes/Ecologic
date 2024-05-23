@@ -1,7 +1,7 @@
-package br.com.ecologic.controller;
+package br.com.ecologic.controller.usuario_controller;
 
-import br.com.ecologic.dto.TokenDto;
-import br.com.ecologic.dto.UsuarioLoginDto;
+import br.com.ecologic.dto.usuario_dto.TokenDto;
+import br.com.ecologic.dto.usuario_dto.UsuarioLoginDto;
 import br.com.ecologic.model.Usuario;
 import br.com.ecologic.service.TokenService;
 import br.com.ecologic.service.UsuarioService;

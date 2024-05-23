@@ -1,8 +1,10 @@
 package br.com.ecologic.model;
 
+import java.util.UUID;
+
 public class Notificacao {
 
-    private int id;
+    private UUID id;
 
     private Usuario usuario;
 

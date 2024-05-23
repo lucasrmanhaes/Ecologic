@@ -1,7 +1,7 @@
-package br.com.ecologic.controller;
+package br.com.ecologic.controller.usuario_controller;
 
-import br.com.ecologic.dto.UsuarioCadastroDto;
-import br.com.ecologic.dto.UsuarioExibicaoDto;
+import br.com.ecologic.dto.usuario_dto.UsuarioCadastroDto;
+import br.com.ecologic.dto.usuario_dto.UsuarioExibicaoDto;
 import br.com.ecologic.model.Usuario;
 import br.com.ecologic.service.UsuarioService;
 import jakarta.validation.Valid;

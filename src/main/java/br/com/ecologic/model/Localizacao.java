@@ -5,6 +5,7 @@ import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Data
 @Entity(name = "TB_LOCALIZACAO")
@@ -12,7 +13,7 @@ public class Localizacao {
 
     @Id
     @Column(name = "id_localizacao")
-    private int id;
+    private UUID id;
 
     @ManyToOne
     @JoinColumn(name = "id_agendamento")

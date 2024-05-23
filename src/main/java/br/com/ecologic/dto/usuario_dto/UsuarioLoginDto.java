@@ -1,4 +1,4 @@
-package br.com.ecologic.dto;
+package br.com.ecologic.dto.usuario_dto;
 
 import br.com.ecologic.model.Usuario;
 import jakarta.validation.constraints.Email;
