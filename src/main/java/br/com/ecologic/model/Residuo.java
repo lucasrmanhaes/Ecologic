@@ -32,4 +32,44 @@ public class Residuo {
     public Residuo() {
 
     }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public TipoResiduo getTipoResiduo() {
+        return tipoResiduo;
+    }
+
+    public void setTipoResiduo(TipoResiduo tipoResiduo) {
+        this.tipoResiduo = tipoResiduo;
+    }
+
+    public Double getCapacidade() {
+        return capacidade;
+    }
+
+    public void setCapacidade(Double capacidade) {
+        this.capacidade = capacidade;
+    }
+
+    public Double getVolume() {
+        return volume;
+    }
+
+    public void setVolume(Double volume) {
+        this.volume = volume;
+    }
 }

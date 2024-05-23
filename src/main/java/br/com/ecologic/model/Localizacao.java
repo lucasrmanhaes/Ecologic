@@ -27,4 +27,44 @@ public class Localizacao {
     @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataOcorrencia;
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public Agendamento getAgendamento() {
+        return agendamento;
+    }
+
+    public void setAgendamento(Agendamento agendamento) {
+        this.agendamento = agendamento;
+    }
+
+    public double getLatidade() {
+        return latidade;
+    }
+
+    public void setLatidade(double latidade) {
+        this.latidade = latidade;
+    }
+
+    public double getLongitute() {
+        return longitute;
+    }
+
+    public void setLongitute(double longitute) {
+        this.longitute = longitute;
+    }
+
+    public Date getDataOcorrencia() {
+        return dataOcorrencia;
+    }
+
+    public void setDataOcorrencia(Date dataOcorrencia) {
+        this.dataOcorrencia = dataOcorrencia;
+    }
 }
