@@ -12,6 +12,7 @@ import java.util.UUID;
 public class Localizacao {
 
     @Id
+    @GeneratedValue(generator = "UUID")
     @Column(name = "id_localizacao")
     private UUID id;
 

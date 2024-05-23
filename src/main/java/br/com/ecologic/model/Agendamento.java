@@ -7,14 +7,16 @@ import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Data
 @Entity(name = "TB_AGENDAMENTO")
 public class Agendamento {
 
     @Id
+    @GeneratedValue(generator = "UUID")
     @Column(name = "id_agendamento")
-    private int id;
+    private UUID id;
 
     @ManyToOne
     @JoinColumn(name = "id_usuario")
