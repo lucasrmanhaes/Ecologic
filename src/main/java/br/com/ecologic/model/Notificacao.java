@@ -1,5 +1,6 @@
 package br.com.ecologic.model;
 
+import br.com.ecologic.constants.TipoResiduo;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -51,5 +52,11 @@ public class Notificacao {
 
     public void setMensagem(String mensagem) {
         this.mensagem = mensagem;
+    }
+
+    public Notificacao criarNotificacao(Usuario usuario, TipoResiduo tipoResiduo) {
+        this.usuario = usuario;
+        this.mensagem = "Prezado(a), o status do seu ";
+        return this;
     }
 }

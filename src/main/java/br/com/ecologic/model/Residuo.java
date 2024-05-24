@@ -27,6 +27,9 @@ public class Residuo {
     private Double volume;
 
     public Residuo(TipoResiduo tipoResiduo, Double capacidade, Double volume) {
+        this.tipoResiduo = tipoResiduo;
+        this.capacidade = capacidade;
+        this.volume = volume;
     }
 
     public Residuo() {

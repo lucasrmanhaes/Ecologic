@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.List;
+
 @Service
 public class CaminhaoService {
 
@@ -21,5 +24,11 @@ public class CaminhaoService {
         Caminhao caminhao = caminhaoRepository.findById(caminhaoDto.id())
                 .orElseThrow(() -> new IllegalArgumentException("Caminhão não encontrado"));
         return ResponseEntity.ok(caminhao);
+    }
+
+    public Caminhao buscarCaminhaoRandom() {
+        List<Caminhao> lstCaminhoes = caminhaoRepository.findAll();
+        Collections.shuffle(lstCaminhoes);
+        return lstCaminhoes.get(0);
     }
 }

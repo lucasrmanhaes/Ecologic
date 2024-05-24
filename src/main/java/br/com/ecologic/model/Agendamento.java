@@ -1,6 +1,7 @@
 package br.com.ecologic.model;
 
 
+import br.com.ecologic.constants.Status;
 import br.com.ecologic.constants.TipoResiduo;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -33,7 +34,8 @@ public class Agendamento {
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAgendamento;
 
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
     public UUID getId() {
         return id;
@@ -75,11 +77,4 @@ public class Agendamento {
         this.dataAgendamento = dataAgendamento;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
 }
