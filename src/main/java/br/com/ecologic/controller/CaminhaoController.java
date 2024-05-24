@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/caminhoes")
+@RequestMapping("/api")
 public class CaminhaoController {
 
     private final CaminhaoService caminhaoService;
@@ -20,7 +20,7 @@ public class CaminhaoController {
         this.caminhaoService = caminhaoService;
     }
 
-    @PostMapping("/selecionar")
+    @PostMapping("/caminhao")
     public ResponseEntity<Caminhao> selecionarPorId(@RequestBody @Valid CaminhaoDto caminhaoDto) {
         return caminhaoService.selecionarPorId(caminhaoDto);
     }
