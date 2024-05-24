@@ -30,10 +30,10 @@ public class AgendamentoService {
         }
     }
 
-    public Agendamento buscarAgendamentoEmAberto(Usuario usuario) {
+    /*public Agendamento buscarAgendamentoEmAberto(Usuario usuario) {
         Agendamento agendamento = agendamentoRepository.findByUsuarioAndStatusNotEqual(usuario, Status.CONCLUIDO);
         return agendamento;
-    }
+    }*/
 }
 
 

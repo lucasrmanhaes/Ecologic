@@ -36,7 +36,7 @@ public class ScheduleService {
         if(!lstResiduos.isEmpty()){
             for(Residuo residuo : lstResiduos){
                 //VERIFICAR SE EXISTE AGENDAMENTO PARA ESTE USUÁRIO EM ABERTO
-                Agendamento agendamento = agendamentoService.buscarAgendamentoEmAberto(residuo.getUsuario());
+                Agendamento agendamento = new Agendamento();
                 Caminhao caminhao = caminhaoService.buscarCaminhaoRandom();
 
                 if(agendamento == null){
