@@ -3,16 +3,14 @@ package br.com.ecologic.service;
 import br.com.ecologic.constants.Status;
 import br.com.ecologic.model.*;
 import br.com.ecologic.util.Tools;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
 
 @Service
-public class ScheduleService {
+public class RotinasService {
 
     @Autowired
     private AgendamentoService agendamentoService;
@@ -26,7 +24,7 @@ public class ScheduleService {
     @Autowired
     private CaminhaoService caminhaoService;
 
-    @Scheduled(fixedDelay = 5000)
+    //@Scheduled(fixedDelay = 5000)
     private void gerarAgendamentoAutomatico(){
         // para gerar o agendamento será necessário localizar todos os resíduos que atingiram a capacidade
         // em seguida, será criado o agendamento.
@@ -36,7 +34,7 @@ public class ScheduleService {
         if(!lstResiduos.isEmpty()){
             for(Residuo residuo : lstResiduos){
                 //VERIFICAR SE EXISTE AGENDAMENTO PARA ESTE USUÁRIO EM ABERTO
-                Agendamento agendamento = new Agendamento();
+                Agendamento agendamento = agendamentoService.buscarAgendamentoEmAberto(residuo.getUsuario());
                 Caminhao caminhao = caminhaoService.buscarCaminhaoRandom();
 
                 if(agendamento == null){
