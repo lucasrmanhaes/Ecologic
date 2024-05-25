@@ -13,13 +13,10 @@ public class Tools {
             Date data = new Date(date.getTime());
             cal.setTime(data);
             cal.add(Calendar.DATE, + qtde_dias);
-
             dt_retorno = new Date(cal.getTime().getTime());
-
         }catch (Exception ex) {
             ex.printStackTrace();
         }
-
         return dt_retorno;
     }
 

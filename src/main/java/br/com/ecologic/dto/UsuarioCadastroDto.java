@@ -3,6 +3,7 @@ package br.com.ecologic.dto;
 import br.com.ecologic.constants.UsuarioRole;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 public record UsuarioCadastroDto(
         @NotBlank(message = "O nome é obrigatório")
@@ -15,6 +16,7 @@ public record UsuarioCadastroDto(
         @Email(message = "O e-mail está incorreto")
         String email,
         @NotBlank(message = "A senha é obrigatória")
+        @Size(min = 6, max = 8, message = "A senha ter entre 6 a 8 caracteres")
         String senha,
         boolean ativo,
         UsuarioRole role
