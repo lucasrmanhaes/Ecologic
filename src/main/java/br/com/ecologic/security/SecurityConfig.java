@@ -33,6 +33,10 @@ public class SecurityConfig {
                     .requestMatchers(HttpMethod.POST, "/api/caminhao").permitAll()
                     .requestMatchers(HttpMethod.PUT, "/api/caminhao").permitAll()
                     .requestMatchers(HttpMethod.DELETE, "/api/caminhao").permitAll()
+                    .requestMatchers(HttpMethod.POST, "/api/residuos").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/api/residuos").permitAll()
+                    .requestMatchers(HttpMethod.PUT, "/api/residuos").permitAll()
+                    .requestMatchers(HttpMethod.DELETE, "/api/residuos").permitAll()
             ).addFilterBefore(verificarToken, UsernamePasswordAuthenticationFilter.class)
             .build();
     }
