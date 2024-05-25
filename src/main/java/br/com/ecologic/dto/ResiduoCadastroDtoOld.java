@@ -3,7 +3,7 @@
         import br.com.ecologic.constants.TipoResiduo;
         import jakarta.validation.constraints.NotBlank;
 
-        public record ResiduoCadastroDto(
+        public record ResiduoCadastroDtoOld(
                 @NotBlank(message = "O tipo de resíduo é obrigatório.")
                 TipoResiduo tipoResiduo,
                 @NotBlank(message = "A capacidade da lixeira é obrigatória.")
