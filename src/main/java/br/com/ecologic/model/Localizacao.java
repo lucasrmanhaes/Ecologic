@@ -20,9 +20,9 @@ public class Localizacao {
     @JoinColumn(name = "id_agendamento")
     private Agendamento agendamento;
 
-    private double latidade;
+    private String latidade;
 
-    private double longitute;
+    private String longitute;
 
     @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     @Temporal(TemporalType.TIMESTAMP)
@@ -44,19 +44,19 @@ public class Localizacao {
         this.agendamento = agendamento;
     }
 
-    public double getLatidade() {
+    public String getLatidade() {
         return latidade;
     }
 
-    public void setLatidade(double latidade) {
+    public void setLatidade(String latidade) {
         this.latidade = latidade;
     }
 
-    public double getLongitute() {
+    public String getLongitute() {
         return longitute;
     }
 
-    public void setLongitute(double longitute) {
+    public void setLongitute(String longitute) {
         this.longitute = longitute;
     }
 

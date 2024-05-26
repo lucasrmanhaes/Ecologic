@@ -6,6 +6,7 @@ import br.com.ecologic.dto.UsuarioCadastroDto;
 import br.com.ecologic.dto.UsuarioExibicaoDto;
 import br.com.ecologic.model.Usuario;
 import br.com.ecologic.repository.UsuarioRepository;
+import br.com.ecologic.util.Tools;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -40,6 +41,14 @@ public class UsuarioService {
             if(!usuario.isAtivo()){
                 usuario.setAtivo(true);
             }
+
+            //localiza latitude longitude
+            String[] latitudeLongitude = Tools.latitudeLongitude(usuarioCadastroDto.cep());
+            if (latitudeLongitude != null) {
+                usuario.setLatitude(latitudeLongitude[0]);
+                usuario.setLongitude(latitudeLongitude[1]);
+            }
+
             return new UsuarioExibicaoDto(usuarioRepository.save(usuario));
         }
 

@@ -3,6 +3,7 @@ package br.com.ecologic.dto;
 import br.com.ecologic.constants.UsuarioRole;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public record UsuarioCadastroDto(
@@ -18,6 +19,9 @@ public record UsuarioCadastroDto(
         @NotBlank(message = "A senha é obrigatória")
         @Size(min = 6, max = 8, message = "A senha ter entre 6 a 8 caracteres")
         String senha,
+        @NotBlank(message = "O CEP é obrigatório")
+        @Size(min = 8, max = 8, message = "O CEP deve possuir 8 caracteres")
+        String cep,
         boolean ativo,
         UsuarioRole role
 )

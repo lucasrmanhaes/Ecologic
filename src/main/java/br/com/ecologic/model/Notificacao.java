@@ -11,6 +11,7 @@ import java.util.UUID;
 public class Notificacao {
 
     @Id
+    @GeneratedValue(generator = "UUID")
     @Column(name = "id_notificacao")
     private UUID id;
 
@@ -22,41 +23,12 @@ public class Notificacao {
 
     private String mensagem;
 
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
+    public Notificacao criarNotificacao(Usuario usuario, String titulo, String mensagem) {
         this.usuario = usuario;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
         this.titulo = titulo;
-    }
-
-    public String getMensagem() {
-        return mensagem;
-    }
-
-    public void setMensagem(String mensagem) {
         this.mensagem = mensagem;
-    }
-
-    public Notificacao criarNotificacao(Usuario usuario, TipoResiduo tipoResiduo) {
-        this.usuario = usuario;
-        this.mensagem = "Prezado(a), o status do seu ";
         return this;
     }
+
+
 }

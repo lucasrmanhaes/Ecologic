@@ -23,4 +23,8 @@ public class Residuo {
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 
+    @ManyToOne
+    @JoinColumn(name = "id_agendamento")
+    private Agendamento agendamento;
+
 }

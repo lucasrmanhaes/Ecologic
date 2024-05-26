@@ -1,10 +1,9 @@
 package br.com.ecologic.service;
 
-import br.com.ecologic.dto.CaminhaoDto;
+import br.com.ecologic.dto.CaminhaoDTO;
 import br.com.ecologic.model.Caminhao;
 import br.com.ecologic.repository.CaminhaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -17,8 +16,8 @@ public class CaminhaoService {
     @Autowired
     private CaminhaoRepository caminhaoRepository;
 
-    public Caminhao selecionarPorId(CaminhaoDto caminhaoDto) {
-        Optional<Caminhao> caminhaoOpt = caminhaoRepository.findById(caminhaoDto.id());
+    public Caminhao selecionarPorId(CaminhaoDTO caminhaoDTO) {
+        Optional<Caminhao> caminhaoOpt = caminhaoRepository.findById(caminhaoDTO.id());
         if(caminhaoOpt.isPresent()) {
             return caminhaoOpt.get();
         }

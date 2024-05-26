@@ -1,6 +1,8 @@
 package br.com.ecologic.controller;
 
-import br.com.ecologic.dto.CaminhaoDto;
+import br.com.ecologic.dto.CaminhaoDTO;
+import br.com.ecologic.dto.ResiduoCadastroDto;
+import br.com.ecologic.dto.ResiduoExibicaoDto;
 import br.com.ecologic.model.Caminhao;
 import br.com.ecologic.service.CaminhaoService;
 import jakarta.validation.Valid;
@@ -17,7 +19,8 @@ public class CaminhaoController {
 
     @PostMapping("/caminhao")
     @ResponseStatus(HttpStatus.OK)
-    public Caminhao selecionarPorId(@RequestBody @Valid CaminhaoDto caminhaoDto) {
-        return caminhaoService.selecionarPorId(caminhaoDto);
+    public Caminhao selecionarPorId(@RequestBody @Valid CaminhaoDTO caminhaoDTO) {
+        return caminhaoService.selecionarPorId(caminhaoDTO);
     }
+
 }

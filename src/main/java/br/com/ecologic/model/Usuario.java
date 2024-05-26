@@ -21,6 +21,9 @@ public class Usuario implements UserDetails {
     private String nome;
     private String cpf;
     private String telefone;
+    private String cep;
+    private String latitude;
+    private String longitude;
     private String email;
     private String senha;
     private boolean ativo = true;
@@ -66,5 +69,36 @@ public class Usuario implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    @PostLoad
+    public void postLoad(){
+        if(this.cep.contains("-")){
+            this.cep = this.cep.replace("-", "");
+        }
     }
 }

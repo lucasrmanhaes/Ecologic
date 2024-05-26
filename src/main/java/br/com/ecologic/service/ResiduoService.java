@@ -2,6 +2,7 @@ package br.com.ecologic.service;
 
 import br.com.ecologic.Exception.UsuarioException;
 import br.com.ecologic.dto.ResiduoCadastroDto;
+import br.com.ecologic.model.Agendamento;
 import br.com.ecologic.model.Residuo;
 import br.com.ecologic.model.Usuario;
 import br.com.ecologic.repository.ResiduoRepository;
@@ -9,6 +10,8 @@ import br.com.ecologic.repository.UsuarioRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -36,6 +39,14 @@ public class ResiduoService {
         }
     }
 
+    public void gravar(Residuo residuo) {
+        try{
+            residuoRepository.save(residuo);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
     public Residuo listar(UUID idResiduo){
         Optional<Residuo> residuoOpt = residuoRepository.findById(idResiduo);
         if (residuoOpt.isPresent()) {
@@ -67,7 +78,12 @@ public class ResiduoService {
     }
 
     public List<Residuo> buscarResiduosCapacidadeAtingida(){
-        List<Residuo> residuos = residuoRepository.findAll();
-        return residuos.stream().filter(r -> r.getCapacidade() >= r.getVolume()).collect(Collectors.toList());
+        List<Residuo> residuos = residuoRepository.findByCapacidadeEqualVolumeAndAgendamentoIsNull();
+        if(!residuos.isEmpty()){
+            return residuos;
+        }
+        else{
+            return new ArrayList<>();
+        }
     }
 }

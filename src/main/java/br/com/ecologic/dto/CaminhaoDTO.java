@@ -2,6 +2,6 @@ package br.com.ecologic.dto;
 
 import java.util.UUID;
 
-public record CaminhaoDto(
+public record CaminhaoDTO(
         UUID id
 ) {}
