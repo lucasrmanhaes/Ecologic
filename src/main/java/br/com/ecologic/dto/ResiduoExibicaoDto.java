@@ -11,7 +11,7 @@ public record ResiduoExibicaoDto(
         TipoResiduo tipoResiduo,
         UUID idUsuario,
         String nomeUsuario,
-        String emailusuario
+        String emailUsuario
 ) {
     public ResiduoExibicaoDto(Residuo residuo){
         this(
