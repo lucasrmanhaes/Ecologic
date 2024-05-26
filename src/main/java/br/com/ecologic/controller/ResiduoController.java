@@ -1,12 +1,12 @@
 package br.com.ecologic.controller;
 
 import br.com.ecologic.dto.ResiduoCadastroDto;
+import br.com.ecologic.dto.ResiduoExibicaoDto;
 import br.com.ecologic.model.Residuo;
 import br.com.ecologic.service.ResiduoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.UUID;
 
 @RestController
@@ -18,8 +18,8 @@ public class ResiduoController {
 
     @PostMapping("/residuos")
     @ResponseStatus(HttpStatus.CREATED)
-    public Residuo cadastrar(@RequestBody ResiduoCadastroDto residuoCadastroDto) {
-        return residuoService.cadastrar(residuoCadastroDto);
+    public ResiduoExibicaoDto cadastrar(@RequestBody ResiduoCadastroDto residuoCadastroDto) {
+        return new ResiduoExibicaoDto(residuoService.cadastrar(residuoCadastroDto));
     }
 
     @GetMapping("/residuos/{id}")
