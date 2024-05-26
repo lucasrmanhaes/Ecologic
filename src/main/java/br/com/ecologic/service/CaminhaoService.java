@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CaminhaoService {
@@ -16,14 +17,12 @@ public class CaminhaoService {
     @Autowired
     private CaminhaoRepository caminhaoRepository;
 
-    public CaminhaoService(CaminhaoRepository caminhaoRepository) {
-        this.caminhaoRepository = caminhaoRepository;
-    }
-
-    public ResponseEntity<Caminhao> selecionarPorId(CaminhaoDto caminhaoDto) {
-        Caminhao caminhao = caminhaoRepository.findById(caminhaoDto.id())
-                .orElseThrow(() -> new IllegalArgumentException("Caminhão não encontrado"));
-        return ResponseEntity.ok(caminhao);
+    public Caminhao selecionarPorId(CaminhaoDto caminhaoDto) {
+        Optional<Caminhao> caminhaoOpt = caminhaoRepository.findById(caminhaoDto.id());
+        if(caminhaoOpt.isPresent()) {
+            return caminhaoOpt.get();
+        }
+        else throw new RuntimeException("Caminhão não localizado na base de dados");
     }
 
     public Caminhao buscarCaminhaoRandom() {
