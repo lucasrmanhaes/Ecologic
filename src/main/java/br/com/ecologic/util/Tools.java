@@ -1,5 +1,6 @@
 package br.com.ecologic.util;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.net.URI;
@@ -46,6 +47,7 @@ public class Tools {
             // Enviar a requisição e obter a resposta
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, false);
             Pontos pontos = objectMapper.readValue(response.body(), Pontos.class);
 
             if (pontos != null) {
