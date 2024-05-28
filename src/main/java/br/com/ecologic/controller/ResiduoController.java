@@ -30,7 +30,7 @@ public class ResiduoController {
 
     @PutMapping("/residuos")
     @ResponseStatus(HttpStatus.OK)
-    public Residuo atualizar(Residuo residuo){
+    public Residuo atualizar(@RequestBody Residuo residuo){
         return residuoService.atualizar(residuo);
     }
 

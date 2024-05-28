@@ -26,17 +26,17 @@ public class SecurityConfig {
         return httpSecurity.csrf(csrf -> csrf.disable())
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(authorize -> authorize
-                    .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                     .requestMatchers(HttpMethod.POST, "/api/usuario").permitAll()
+                    .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                     .requestMatchers(HttpMethod.GET, "/api/usuario/{id}").permitAll()
                     .requestMatchers(HttpMethod.GET, "/api/caminhao").permitAll()
                     .requestMatchers(HttpMethod.POST, "/api/caminhao").permitAll()
                     .requestMatchers(HttpMethod.PUT, "/api/caminhao").permitAll()
                     .requestMatchers(HttpMethod.DELETE, "/api/caminhao").permitAll()
                     .requestMatchers(HttpMethod.POST, "/api/residuos").permitAll()
-                    .requestMatchers(HttpMethod.GET, "/api/residuos").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/api/residuos/{id}").permitAll()
                     .requestMatchers(HttpMethod.PUT, "/api/residuos").permitAll()
-                    .requestMatchers(HttpMethod.DELETE, "/api/residuos").permitAll()
+                    .requestMatchers(HttpMethod.DELETE, "api/residuos/{id}").permitAll()
             ).addFilterBefore(verificarToken, UsernamePasswordAuthenticationFilter.class)
             .build();
     }
